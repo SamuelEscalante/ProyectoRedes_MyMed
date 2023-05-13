@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MYMED - Venta y gesti&oacute;n de medicamentos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="statics/app.css">
+</head>
+<body>
+  <!-- Section: Design Block -->
+  <section style="background-color: #f5f5f5;">
+    <div class="container mx-auto max-w-xl py-10">
+      <div class="row">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <h1 class="text-4xl font-bold mb-3 text-primary">
+            MYMED <br>
+            Venta y gestión de medicamentos
+          </h1>
+          <p class="text-lg mb-5">
+            Aquí podrás comprar y gestionar tus medicamentos comprados.
+          </p>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#integrantesModal">
+            Ver más
+          </button>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow-lg">
+            <div class="card-body py-5 px-md-5">
+              <form action="ingresar.php" method="post">
+                <h2 class="text-3xl mb-4 font-bold text-center">Iniciar sesión</h2>
+                <div class="form-group mb-4">
+                  <label for="usuario" class="form-label">Usuario:</label>
+                  <input type="text" name="usuario" id="usuario" class="form-control" placeholder="Ingresa tu usuario">
+                </div>
+                <div class="form-group mb-4">
+                  <label for="password" class="form-label">Contraseña:</label>
+                  <input type="password" name="password" id="password" class="form-control" placeholder="Ingresa tu contraseña">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block mb-4">Ingresar</button>
+                <hr>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+  <div class="modal" tabindex="-1" id="integrantesModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Integrantes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Integrantes Redes.</p>
+          <ul class="list-unstyled">
+            <li>Samuel Escalante</li>
+            <li>Manuela Mayorga Rojas</li>
+            <li>Maria de los Angeles Amu</li>
+            <li>Emmanuel Quintero Palma</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .container-imagenes {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .container-imagenes img {
+      border: 1px solid #ccc;
+      box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+      margin-right: 20px;
+    }
+  </style>
+<div class="container-imagenes" style="display: flex; justify-content: center;">
+  <img src="https://www.pngitem.com/pimgs/m/540-5409085_thumb-image-lista-de-preo-de-medicamentos-hd.png" style="width: 200px; height: 200px; margin-right: 40px;">
+  <img src="https://booold.com/wp-content/uploads/2020/05/Medicamentos.png" style="width: 200px; height: 200px; margin-right: 40px;">
+  <img src="https://cdn.pixabay.com/photo/2017/09/30/01/42/medicine-2801025_1280.png" style="width: 200px; height: 200px;">
+</div>
+<script src="statics/app.js"></script>
+  
+</body>
+</html>
