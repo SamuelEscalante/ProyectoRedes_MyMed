@@ -28,18 +28,29 @@ services:
       - db
       - microusuarios
       - micromedic
-  microweb:
-    build: ./microweb
+  haproxy:
+    build: ./haproxy
     links:
-      - microusuarios
-      - micromedic
-      - microcompras
+      - app-1
+      - app-2
     ports:
       - "4090:80"
+  app-1:
+    build: ./microweb
+    volumes:
+      - ./microweb/app-1:/var/www/html/
     depends_on:
       - microusuarios
       - micromedic
       - microcompras
+  app-2:
+    build: ./microweb
+    volumes:
+      - ./microweb/app-2:/var/www/html/
+    depends_on:
+      - microusuarios
+      - micromedic
+      - microcompras    
   db:
     image: mysql:5.7
     ports:
