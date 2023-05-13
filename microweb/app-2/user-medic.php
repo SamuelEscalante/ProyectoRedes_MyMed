@@ -15,10 +15,7 @@ $us = $_SESSION["usuario"];
 </head>
 
 <body>
-    <?php
-    session_start();
-    $us = $_SESSION["usuario"];
-    ?>
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="usuario.php">YOU MED</a>
