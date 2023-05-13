@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
   micromedic:
-    saalesgu: saalesgu/micromedic
+    image: saalesgu/micromedic
     links:
       - db
     ports:
