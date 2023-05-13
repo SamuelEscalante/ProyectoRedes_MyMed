@@ -1,7 +1,7 @@
 version: "2"
 services:
   microusuarios:
-    build: ./microusuarios
+    image: saalesgu/microusuarios
     links:
       - db
     ports:
@@ -9,7 +9,7 @@ services:
     depends_on:
       - db
   micromedic:
-    build: ./micromedic
+    saalesgu: saalesgu/micromedic
     links:
       - db
     ports:
@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
   microcompras:
-    build: ./microcompras
+    image: saalesgu/microcompras
     links:
       - db
       - microusuarios
@@ -29,14 +29,14 @@ services:
       - microusuarios
       - micromedic
   haproxy:
-    build: ./haproxy
+    image: saalesgu/haproxy
     links:
       - app-1
       - app-2
     ports:
       - "4090:80"
   app-1:
-    build: ./microweb
+    image: saalesgu/microweb
     volumes:
       - ./microweb/app-1:/var/www/html/
     depends_on:
@@ -44,7 +44,7 @@ services:
       - micromedic
       - microcompras
   app-2:
-    build: ./microweb
+    image: saalesgu/microweb
     volumes:
       - ./microweb/app-2:/var/www/html/
     depends_on:
