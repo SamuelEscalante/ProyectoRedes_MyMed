@@ -1,3 +1,10 @@
+<?php
+session_start();
+$us = $_SESSION["usuario"];
+if ($us == "") {
+    header("Location: index.html");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,13 +18,6 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    $us = $_SESSION["usuario"];
-    if ($us == "") {
-        header("Location: index.html");
-    }
-    ?>
 <style>
   /* Estilos para la imagen */
   .jumbotron img {
