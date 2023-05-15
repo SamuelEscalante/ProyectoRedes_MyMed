@@ -1,7 +1,10 @@
 <?php
 session_start();
-$us = $_SESSION["usuario"];
-if ($us == "") {
+
+if (isset($_SESSION["usuario"])) {
+    $us = $_SESSION["usuario"];
+    // Resto del código
+} else {
     header("Location: index.html");
 }
 ?>
