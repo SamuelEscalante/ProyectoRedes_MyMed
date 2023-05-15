@@ -91,8 +91,7 @@ if ($us == "") {
             }
             if (is_object($resp)) {
                 $long = count($resp);
-                echo $long;
-                echo "-----";
+
                 for ($i = 0; $i < $long; $i++) {
                     $dec = $resp[$i];
                     $id = $dec->id;
