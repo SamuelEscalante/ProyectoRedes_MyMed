@@ -90,10 +90,11 @@ if ($us == "") {
                 }
             }
             if (is_object($resp)) {
-                $long = count($resp);
+                $respArray = (array) $resp;
+                $long = sizeof($respArray);
+                echo $long;
                 
-                for ($i = 0; $i < $long; $i++) {
-                    $dec = $resp[$i];
+                foreach ($respArray as $dec) {
                     $id = $dec->id;
                     $usuario = $dec->usuario;
                     $medicamento_nombre = $dec->medicamentoNombre;
@@ -104,8 +105,8 @@ if ($us == "") {
                     $totalCuenta = $dec->totalCuenta;
                     $fechaCompra = $dec->FechaCompra;
                     
-
-                ?>
+                    
+            ?>
                     <tr>
                         <td><?php echo $usuario; ?></td>
                         <td><?php echo $medicamento_id; ?></td>
