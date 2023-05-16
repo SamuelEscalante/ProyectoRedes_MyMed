@@ -91,7 +91,7 @@ if (isset($_SESSION["usuario"])) {
                     }
                 }
             }
-            if (is_object($resp)) {
+            if (is_array($resp)) {
                 $long = count($resp);
                 echo $long;
                 
