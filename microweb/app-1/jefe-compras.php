@@ -20,7 +20,7 @@ if (isset($_SESSION["usuario"])) {
 </head>
 
 <body>
-<h1>app-1</h1>
+
     <?php include("navbar.php") ?>
     <div class="container">
         <div class="row">
