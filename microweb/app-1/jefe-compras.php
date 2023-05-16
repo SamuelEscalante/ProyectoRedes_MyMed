@@ -1,7 +1,9 @@
 <?php
 session_start();
-$us = $_SESSION["usuario"];
-if ($us == "") {
+
+if (isset($_SESSION["usuario"])) {
+    $us = $_SESSION["usuario"];
+} else {
     header("Location: index.html");
 }
 ?>
@@ -18,7 +20,7 @@ if ($us == "") {
 </head>
 
 <body>
-<h1>app-2</h1>
+<h1>app-1</h1>
     <?php include("navbar.php") ?>
     <div class="container">
         <div class="row">
