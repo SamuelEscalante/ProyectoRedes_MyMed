@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 
 if (isset($_SESSION["usuario"])) {
@@ -6,6 +7,7 @@ if (isset($_SESSION["usuario"])) {
 } else {
     header("Location: index.html");
 }
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">

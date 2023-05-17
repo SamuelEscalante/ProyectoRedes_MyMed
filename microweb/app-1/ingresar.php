@@ -1,4 +1,5 @@
 <?php
+ob_start();
     $user=$_POST["usuario"];
     $pass=$_POST["password"];
 
@@ -28,3 +29,5 @@
     else {
     header("Location:index.html"); 
     }
+
+    ob_end_flush();

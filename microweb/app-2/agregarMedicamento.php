@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $DESCRIPCION = $_POST["DESCRIPCION"];
 $PRECIO_UNITARIO = $_POST["PRECIO_UNITARIO"];
 $INVENTARIO = $_POST["INVENTARIO"];
@@ -34,3 +35,5 @@ if ($response === false) {
 // Cerrar la conexión cURL
 curl_close($ch);
 header("Location:jefe.php");
+
+ob_end_flush();

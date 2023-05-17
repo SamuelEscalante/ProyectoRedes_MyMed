@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $usuario = $_POST['usuario'];
 
 $items = array();
@@ -46,5 +47,6 @@ curl_close($ch);
 
 header("Location:usuario.php");
 
+ob_end_flush();
 ?>
 

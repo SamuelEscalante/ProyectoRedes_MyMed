@@ -1,9 +1,11 @@
 <?php
+ob_start();
 session_start();
 $us = $_SESSION["usuario"];
 if ($us == "") {
     header("Location: index.html");
 }
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1,9 +1,11 @@
 <?php
+ob_start();
 session_start();
 $us = $_SESSION["usuario"];
 if ($us == "") {
     header("Location: index.html");
 }
+ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -125,14 +127,14 @@ if ($us == "") {
             $id=$dec ->id;
             $ID_MEDICAMENTO=$dec->ID_MEDICAMENTO;
             $DESCRIPCION=$dec->DESCRIPCION;
-	    $INVENTARIO=$dec->INVENTARIO;
-	    $FECHA=$dec->Fecha;
+	          $INVENTARIO=$dec->INVENTARIO;
+	          $FECHA=$dec->Fecha;
      ?>
     
         <tr>
         <td><?php echo $id; ?></td>
-	<td>El medicamento (ID <?php echo $ID_MEDICAMENTO; ?>) <?php echo $DESCRIPCION; ?> está por debajo de 11 unidades (<?php echo $INVENTARIO; ?>).</td>
-	<td><?php echo $FECHA; ?></td>
+	      <td>El medicamento (ID <?php echo $ID_MEDICAMENTO; ?>) <?php echo $DESCRIPCION; ?> está por debajo de 11 unidades (<?php echo $INVENTARIO; ?>).</td>
+	      <td><?php echo $FECHA; ?></td>
         </tr>
      <?php 
         }

@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $nombre = $_POST["nombre"];
 $usuario = $_POST["usuario"];
 $pass = $_POST["password"];
@@ -36,3 +37,5 @@ if ($response === false) {
 // Cerrar la conexión cURL
 curl_close($ch);
 header("Location:jefe.php");
+
+ob_end_flush();

@@ -1,5 +1,5 @@
 <?php
-
+ob_start();
 $ID_MEDICAMENTO = $_POST['ID_MEDICAMENTO'];
 $INVENTARIO = $_POST['INVENTARIO'];
 
@@ -25,4 +25,5 @@ echo "Error en la solicitud: $error_msg";
 header('Location: jefe.php');
 exit;
 }
+ob_end_flush();
 ?>
