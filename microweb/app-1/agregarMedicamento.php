@@ -1,11 +1,6 @@
 <?php
 $DESCRIPCION = $_POST["DESCRIPCION"];
-$Laboratorio = $_POST["Laboratorio"];
-$Condicion_Venta = $_POST["Condicion_Venta"];
 $PRECIO_UNITARIO = $_POST["PRECIO_UNITARIO"];
-$FechaCompra = $_POST["FechaCompra"];
-$FechaCaducidad = $_POST["FechaCaducidad"]
-$Porcentaje_Efectividad = $_POST["Porcentaje_Efectividad"]
 $INVENTARIO = $_POST["INVENTARIO"];
 
 // URL de la solicitud POST
@@ -14,12 +9,7 @@ $url = 'http://192.168.100.2:3002/medicamentos';
 // Datos que se enviarán en la solicitud POST
 $data = array(
     'DESCRIPCION' => $DESCRIPCION,
-    'Laboratorio' => $Laboratorio,
-    'Condicion_Venta' => $Condicion_Venta,
     'PRECIO_UNITARIO' => $PRECIO_UNITARIO,
-    'FechaCompra' => $FechaCompra
-    'FechaCaducidad' => $FechaCaducidad
-    'Porcentaje_Efectividad' => $Porcentaje_Efectividad
     'INVENTARIO' => $INVENTARIO,
 );
 $json_data = json_encode($data);

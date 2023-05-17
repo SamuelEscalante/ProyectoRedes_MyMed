@@ -125,12 +125,7 @@ if (isset($_SESSION["usuario"])) {
     <tr>
       <th>ID_MEDICAMENTO</th>
       <th>DESCRIPCIÓN</th>
-      <th>LABORATORIO</th>
-      <th>CONDICION DE VENTA</th>
       <th>PRECIO UNITARIO</th>
-      <th>FECHA DE COMPRA</th>
-      <th>FECHA DE CADUCIDAD</th>
-      <th>PORCENTAJE DE EFECTIVIDAD</th>
       <th>INVENTARIO</th>
     </tr>
   </thead>
@@ -154,23 +149,13 @@ if (isset($_SESSION["usuario"])) {
           $dec = $resp[$i];
           $ID_MEDICAMENTO = $dec->ID_MEDICAMENTO;
           $DESCRIPCION = $dec->DESCRIPCION;
-          $Laboratorio = $dec->Laboratorio;
-          $Condicion_Venta = $dec->Condicion_Venta;
           $PRECIO_UNITARIO = $dec->PRECIO_UNITARIO;
-          $FechaCompra = $dec->FechaCompra;
-          $FechaCaducidad = $dec->FechaCaducidad;
-          $Porcentaje_Efectividad = $dec->Porcentaje_Efectividad
           $INVENTARIO = $dec->INVENTARIO;
     ?>
         <tr>
           <td><?php echo $ID_MEDICAMENTO; ?></td>
           <td><?php echo $DESCRIPCION; ?></td>
-          <td><?php echo $Laboratorio; ?></td>
-          <td><?php echo $Condicion_Venta; ?></td>
           <td><?php echo "$" . number_format($PRECIO_UNITARIO, 2); ?></td>
-          <td><?php echo $FechaCompra; ?></td>
-          <td><?php echo $FechaCaducidad; ?></td>
-          <td><?php echo $Porcentaje_Efectividad; ?></td>
           <td><?php echo $INVENTARIO; ?></td>
         </tr>
     <?php
@@ -196,20 +181,8 @@ if (isset($_SESSION["usuario"])) {
                             <input type="text" name="DESCRIPCION" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Laboratorio</label>
-                            <input type="text" name="Laboratorio" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Condición de Venta</label>
-                            <input type="text" name="Condicion_Venta" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
                             <label for="exampleInputEmail1" class="formlabel">Precio Unitario</label>
                             <input type="text" name="PRECIO_UNITARIO" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Fecha de Compra</label>
-                            <input type="text" name="DESCRIPCION" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="exampleInputEmail1" class="formlabel">Inventario</label>
@@ -226,3 +199,4 @@ btn-primary">Agregar Inventario</button>
 </body>
 
 </html>
+

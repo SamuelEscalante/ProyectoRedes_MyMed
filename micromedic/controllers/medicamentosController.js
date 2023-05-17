@@ -6,7 +6,7 @@ router.get('/medicamentos', async (req, res) => {
     const ID_MEDICAMENTO = req.params.ID_MEDICAMENTO;
     var result;
     result = await medicamentosModel.traermedicamentos();
-    
+
     res.json(result[0]);
 });
 
@@ -14,7 +14,7 @@ router.get('/medicamentos/:ID_MEDICAMENTO', async (req, res) => {
     const ID_MEDICAMENTO = req.params.ID_MEDICAMENTO;
     var result;
     result = await medicamentosModel.traermedicamento(ID_MEDICAMENTO);
-    
+
     res.json(result[0]);
 });
 router.put('/medicamentos/:ID_MEDICAMENTO', async (req, res) => {
@@ -29,14 +29,9 @@ router.put('/medicamentos/:ID_MEDICAMENTO', async (req, res) => {
 });
 router.post('/medicamentos', async (req, res) => {
     const DESCRIPCION = req.body.DESCRIPCION;
-    const Laboratorio = req.body.Laboratorio;
-    const Condicion_Venta = req.body.Condicion_Venta;
     const PRECIO_UNITARIO = req.body.PRECIO_UNITARIO;
-    const FechaCompra = req.body.FechaCompra;
-    const FechaCaducidad = req.body.FechaCaducidad;
-    const Porcentaje_Efectividad = req.body.Porcentaje_Efectividad;
     const INVENTARIO = req.body.INVENTARIO;
-    var result = await medicamentosModel.crearmedicamento(DESCRIPCION, Laboratorio, Condicion_Venta, PRECIO_UNITARIO, FechaCompra, FechaCaducidad, Porcentaje_Efectividad, INVENTARIO);
+    var result = await medicamentosModel.crearmedicamento(DESCRIPCION, PRECIO_UNITARIO,INVENTARIO);
     res.send("medicamento creado");
 });
 module.exports = router;
