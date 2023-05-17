@@ -12,13 +12,8 @@ CREATE TABLE usuarios (
 
 CREATE TABLE medicamentos (
     ID_MEDICAMENTO int(11) AUTO_INCREMENT,
-    DESCRIPCION VARCHAR(255),
-    Laboratorio VARCHAR(255),
-    Condicion_Venta VARCHAR(255),
+    DESCRIPCION varchar(255),
     PRECIO_UNITARIO int(11),
-    FechaCompra datetime default current_timestamp(),
-    FechaCaducidad VARCHAR(255),
-    Porcentaje_Efectividad VARCHAR(255),
     INVENTARIO int(11),
     primary key(ID_MEDICAMENTO)
 );
@@ -58,6 +53,4 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(ID_MEDICAMENTO, DESCRIPCION, Laboratorio, Condicion_Venta, PRECIO_UNITARIO, @FechaCompra, @FechaCaducidad, Porcentaje_Efectividad, INVENTARIO)
-SET FechaCompra = STR_TO_DATE(@FechaCompra, '%Y-%m-%d');
-SET FechaCaducidad = STR_TO_DATE(@FechaCaducidad, '%Y-%m-%d');
+(ID_MEDICAMENTO, DESCRIPCION, PRECIO_UNITARIO, INVENTARIO)
