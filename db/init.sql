@@ -13,7 +13,7 @@ CREATE TABLE usuarios (
 CREATE TABLE medicamentos (
     ID_MEDICAMENTO int(11) AUTO_INCREMENT,
     DESCRIPCION varchar(255),
-    PRECIO_UNITARIO int(11),
+    PRECIO_UNITARIO FLOAT(11),
     INVENTARIO int(11),
     primary key(ID_MEDICAMENTO)
 );
