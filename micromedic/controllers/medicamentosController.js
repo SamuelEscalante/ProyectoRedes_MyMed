@@ -29,9 +29,14 @@ router.put('/medicamentos/:ID_MEDICAMENTO', async (req, res) => {
 });
 router.post('/medicamentos', async (req, res) => {
     const DESCRIPCION = req.body.DESCRIPCION;
+    const Laboratorio = req.body.Laboratorio;
+    const Condicion_Venta = req.body.Condicion_Venta;
     const PRECIO_UNITARIO = req.body.PRECIO_UNITARIO;
+    const FechaCompra = req.body.FechaCompra;
+    const FechaCaducidad = req.body.FechaCaducidad;
+    const Porcentaje_Efectividad = req.body.Porcentaje_Efectividad;
     const INVENTARIO = req.body.INVENTARIO;
-    var result = await medicamentosModel.crearmedicamento(DESCRIPCION, PRECIO_UNITARIO,INVENTARIO);
+    var result = await medicamentosModel.crearmedicamento(DESCRIPCION, Laboratorio, Condicion_Venta, PRECIO_UNITARIO, FechaCompra, FechaCaducidad, Porcentaje_Efectividad, INVENTARIO);
     res.send("medicamento creado");
 });
 module.exports = router;

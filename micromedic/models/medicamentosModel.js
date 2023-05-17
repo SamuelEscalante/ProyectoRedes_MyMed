@@ -19,7 +19,6 @@ async function actualizarmedicamento(ID_MEDICAMENTO, INVENTARIO) {
     const id = await connection.query('SELECT DESCRIPCION, INVENTARIO FROM  medicamentos WHERE ID_MEDICAMENTO = ? ', [ID_MEDICAMENTO]);
     const exist_notification = await connection.query('SELECT id, ID_MEDICAMENTO, INVENTARIO FROM notificaciones WHERE ID_MEDICAMENTO = ?', [ID_MEDICAMENTO]);
     if (id[0][0].INVENTARIO <= 10) {
-	console.log('1');
         if (exist_notification[0][0] !== undefined) {
 	    const delete_notification = await connection.query('DELETE FROM notificaciones WHERE id = ?', [exist_notification[0][0].id]);
 	}
@@ -30,8 +29,8 @@ async function actualizarmedicamento(ID_MEDICAMENTO, INVENTARIO) {
     }
     return result;
 }
-async function crearmedicamento(DESCRIPCION, PRECIO_UNITARIO, INVENTARIO) {
-    const result = await connection.query('INSERT INTO medicamentos VALUES(null,?,?,?)', [DESCRIPCION, PRECIO_UNITARIO, INVENTARIO]);
+async function crearmedicamento(DESCRIPCION, Laboratorio, Condicion_Venta, PRECIO_UNITARIO, FechaCompra, FechaCaducidad, Porcentaje_Efectividad, INVENTARIO) {
+    const result = await connection.query('INSERT INTO medicamentos VALUES(null,?,?,?,?,?,?,?)', [DESCRIPCION, Laboratorio, Condicion_Venta, PRECIO_UNITARIO, FechaCompra, FechaCaducidad, Porcentaje_Efectividad, INVENTARIO]);
     return result;
 }
 module.exports = {

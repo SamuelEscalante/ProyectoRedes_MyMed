@@ -58,4 +58,5 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: 1234
     volumes:
+      - "./db/data:/var/lib/mysql-files/"
       - ./db:/docker-entrypoint-initdb.d/:ro

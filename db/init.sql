@@ -12,8 +12,13 @@ CREATE TABLE usuarios (
 
 CREATE TABLE medicamentos (
     ID_MEDICAMENTO int(11) AUTO_INCREMENT,
-    DESCRIPCION varchar(255),
+    DESCRIPCION VARCHAR(255),
+    Laboratorio VARCHAR(255),
+    Condicion_Venta VARCHAR(255),
     PRECIO_UNITARIO int(11),
+    FechaCompra datetime default current_timestamp(),
+    FechaCaducidad VARCHAR(255),
+    Porcentaje_Efectividad VARCHAR(255),
     INVENTARIO int(11),
     primary key(ID_MEDICAMENTO)
 );
@@ -43,9 +48,16 @@ CREATE TABLE notificaciones (
     Fecha datetime default current_timestamp()
 );
 
+
 INSERT INTO usuarios (nombre, usuario, password, jefe) VALUES ('UsuarioJefe', 'Jefe', '1234', 1);
 INSERT INTO usuarios (nombre, usuario, password, jefe) VALUES ('UsuarioComprador', 'User', '1234', 0);
 
-INSERT INTO medicamentos (DESCRIPCION, PRECIO_UNITARIO, INVENTARIO) VALUES ('Acetaminofen caja x12 5mg', '56000', '15');
-INSERT INTO medicamentos (DESCRIPCION, PRECIO_UNITARIO, INVENTARIO) VALUES ('Vitamina D ampolleta 20mg', '2800', '7');
-
+LOAD DATA INFILE '/var/lib/mysql-files/medicamentos.csv'
+INTO TABLE medicamentos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(ID_MEDICAMENTO, DESCRIPCION, Laboratorio, Condicion_Venta, PRECIO_UNITARIO, @FechaCompra, @FechaCaducidad, Porcentaje_Efectividad, INVENTARIO)
+SET FechaCompra = STR_TO_DATE(@FechaCompra, '%Y-%m-%d');
+SET FechaCaducidad = STR_TO_DATE(@FechaCaducidad, '%Y-%m-%d');
