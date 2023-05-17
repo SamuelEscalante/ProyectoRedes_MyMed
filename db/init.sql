@@ -54,3 +54,19 @@ ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (ID_MEDICAMENTO, DESCRIPCION, PRECIO_UNITARIO, INVENTARIO)
+
+LOAD DATA INFILE '/var/lib/mysql-files/usuarios.csv'
+INTO TABLE medicamentos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(nombre, usuario, password, jefe)
+
+LOAD DATA INFILE '/var/lib/mysql-files/compras.csv'
+INTO TABLE medicamentos
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(id,nombreCliente,totalCuenta,FechaCompra)
