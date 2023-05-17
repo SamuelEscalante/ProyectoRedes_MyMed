@@ -44,16 +44,13 @@ CREATE TABLE notificaciones (
 );
 
 
-INSERT INTO usuarios (nombre, usuario, password, jefe) VALUES ('UsuarioJefe', 'Jefe', '1234', 1);
-INSERT INTO usuarios (nombre, usuario, password, jefe) VALUES ('UsuarioComprador', 'User', '1234', 0);
-
 LOAD DATA INFILE '/var/lib/mysql-files/medicamentos.csv'
 INTO TABLE medicamentos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(ID_MEDICAMENTO, DESCRIPCION, PRECIO_UNITARIO, INVENTARIO)
+(ID_MEDICAMENTO, DESCRIPCION, PRECIO_UNITARIO, INVENTARIO);
 
 LOAD DATA INFILE '/var/lib/mysql-files/usuarios.csv'
 INTO TABLE usuarios
@@ -61,7 +58,7 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(nombre, usuario, password, jefe)
+(nombre, usuario, password, jefe);
 
 LOAD DATA INFILE '/var/lib/mysql-files/compras.csv'
 INTO TABLE compras
@@ -69,4 +66,4 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(id,nombreCliente,totalCuenta,FechaCompra)
+(id,nombreCliente,totalCuenta,FechaCompra);
