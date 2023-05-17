@@ -41,8 +41,6 @@ if ($response===false){
 }
 // Cerrar la conexión cURL
 curl_close($ch);
-header("Location:usuario.php");
-
 ob_end_flush();
 ?>
 
