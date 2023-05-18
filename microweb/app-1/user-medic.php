@@ -79,6 +79,7 @@ navigation">
                     $totalCuenta = $dec->totalCuenta;
                     $fechaCompra = $dec->FechaCompra;
                     if ($i == 0) {
+                    ob_end_flush();
                         ?>
                         <tr>
                             <td rowspan="<?php echo $value->len; ?>"><?php echo $usuario; ?></td>

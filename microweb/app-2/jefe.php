@@ -133,26 +133,27 @@ ob_end_flush();
   </thead>
   <tbody>
     <?php
-      $servurl = "http://192.168.100.2:3002/medicamentos";
-      $curl = curl_init($servurl);
+    ob_start();
+    $servurl = "http://192.168.100.2:3002/medicamentos";
+    $curl = curl_init($servurl);
 
-      curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-      $response = curl_exec($curl);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($curl);
 
-      if ($response === false) {
-          curl_close($curl);
-          die("Error en la conexion");
-      }
+    if ($response === false) {
+        curl_close($curl);
+        die("Error en la conexion");
+    }
 
-      curl_close($curl);
-      $resp = json_decode($response);
-      $long = count($resp);
-      for ($i = 0; $i < $long; $i++) {
-          $dec = $resp[$i];
-          $ID_MEDICAMENTO = $dec->ID_MEDICAMENTO;
-          $DESCRIPCION = $dec->DESCRIPCION;
-          $PRECIO_UNITARIO = $dec->PRECIO_UNITARIO;
-          $INVENTARIO = $dec->INVENTARIO;
+    curl_close($curl);
+    $resp = json_decode($response);
+    $long = count($resp);
+    for ($i = 0; $i < $long; $i++) {
+        $dec = $resp[$i];
+        $ID_MEDICAMENTO = $dec->ID_MEDICAMENTO;
+        $DESCRIPCION = $dec->DESCRIPCION;
+        $PRECIO_UNITARIO = $dec->PRECIO_UNITARIO;
+        $INVENTARIO = $dec->INVENTARIO;
     ?>
         <tr>
           <td><?php echo $ID_MEDICAMENTO; ?></td>

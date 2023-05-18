@@ -108,6 +108,7 @@ ob_end_flush();
     </thead>
         <tbody>
             <?php
+            ob_start();
             $servurl = "http://192.168.100.2:3001/usuarios";
             $curl = curl_init($servurl);
 
@@ -128,6 +129,7 @@ ob_end_flush();
                 $usuario = $dec->usuario;
                 $password = $dec->password;
                 $jefe = $dec->jefe;
+                ob_end_flush();
             ?>
                 <tr>
                     <td><?php echo $nombre; ?></td>

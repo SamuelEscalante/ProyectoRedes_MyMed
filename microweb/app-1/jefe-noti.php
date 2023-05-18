@@ -108,6 +108,7 @@ ob_end_flush();
     </thead>
     <tbody>
     <?php
+    ob_start();
         $servurl="http://192.168.100.2:3003/notificaciones";
         $curl=curl_init($servurl);
 
@@ -129,6 +130,7 @@ ob_end_flush();
             $DESCRIPCION=$dec->DESCRIPCION;
 	          $INVENTARIO=$dec->INVENTARIO;
 	          $FECHA=$dec->Fecha;
+            ob_end_flush();
      ?>
     
         <tr>

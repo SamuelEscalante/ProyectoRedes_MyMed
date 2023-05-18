@@ -29,5 +29,4 @@ ob_start();
     else {
     header("Location:index.html"); 
     }
-
-    ob_end_flush();
+?>
