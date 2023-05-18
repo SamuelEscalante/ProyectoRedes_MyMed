@@ -1,8 +1,6 @@
 <?php
-ob_start();
 session_start();
 $us = $_SESSION["usuario"];
-ob_end_flush();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,7 +77,6 @@ navigation">
                     $totalCuenta = $dec->totalCuenta;
                     $fechaCompra = $dec->FechaCompra;
                     if ($i == 0) {
-                    ob_end_flush();
                         ?>
                         <tr>
                             <td rowspan="<?php echo $value->len; ?>"><?php echo $usuario; ?></td>

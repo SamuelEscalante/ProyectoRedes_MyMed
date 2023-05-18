@@ -1,5 +1,4 @@
 <?php
-ob_start();
 $usuario = $_POST['usuario'];
 
 $items = array();
@@ -13,11 +12,14 @@ foreach ($_POST['cantidad'] as $ID_MEDICAMENTO => $cantidad) {
     }
 }
 
+
 $orden['usuario']=$usuario;
 $orden['items']=$items;
 
+
 $json = json_encode($orden);
 //echo $json;
+
 
 $url = 'http://192.168.100.2:3003/compras';
 
@@ -40,6 +42,8 @@ if ($response===false){
 }
 // Cerrar la conexión cURL
 curl_close($ch);
-ob_end_flush();
-?>
 
+
+header("Location:usuario.php");
+
+?>
