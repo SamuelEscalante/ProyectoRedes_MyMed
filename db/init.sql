@@ -28,7 +28,7 @@ CREATE TABLE compras (
 CREATE TABLE medicamentos_por_usuarios (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50),
-    medicamento_nombre VARCHAR(50),
+    medicamento_nombre VARCHAR(1000),
     cantidad INT,
     precio_total FLOAT,
     medicamento_id INT,
