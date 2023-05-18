@@ -46,7 +46,7 @@ CREATE TABLE notificaciones (
 
 LOAD DATA INFILE '/var/lib/mysql-files/medicamentos_.csv'
 INTO TABLE medicamentos
-CHARACTER SET utf8mb4
+CHARACTER SET utf8
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
