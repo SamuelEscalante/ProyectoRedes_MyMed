@@ -61,10 +61,3 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (nombre, usuario, password, jefe);
 
-LOAD DATA INFILE '/var/lib/mysql-files/compras.csv'
-INTO TABLE compras
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(id,nombreCliente,totalCuenta,FechaCompra);
