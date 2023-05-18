@@ -44,7 +44,7 @@ CREATE TABLE notificaciones (
 );
 
 
-LOAD DATA INFILE '/var/lib/mysql-files/medicamentos.csv'
+LOAD DATA INFILE '/var/lib/mysql-files/medicamentos_.csv'
 INTO TABLE medicamentos
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
