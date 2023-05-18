@@ -60,7 +60,6 @@ navigation">
             </thead>
             <tbody>
               <?php
-              ob_start();
                 $servurl = "http://192.168.100.2:3002/medicamentos";
                 $curl = curl_init($servurl);
                 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -78,7 +77,7 @@ navigation">
                   $DESCRIPCION = $dec->DESCRIPCION;
                   $PRECIO_UNITARIO = $dec->PRECIO_UNITARIO;
                   $INVENTARIO = $dec->INVENTARIO;
-                  ob_end_flush();
+
               ?>
               <tr>
                 <td><?php echo $DESCRIPCION; ?></td>
