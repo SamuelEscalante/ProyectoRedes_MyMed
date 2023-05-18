@@ -1,7 +1,10 @@
 <?php
-$usuario = $_POST['usuario'];
-
-$items = array();
+ob_start();
+if (isset($_POST['usuario'])) {
+    $usuario = $_POST['usuario'];
+} else {
+    
+}
 
 // Recorrer los valores de cantidad enviados por el formulario
 foreach ($_POST['cantidad'] as $ID_MEDICAMENTO => $cantidad) {
@@ -12,14 +15,11 @@ foreach ($_POST['cantidad'] as $ID_MEDICAMENTO => $cantidad) {
     }
 }
 
-
 $orden['usuario']=$usuario;
 $orden['items']=$items;
 
-
 $json = json_encode($orden);
 //echo $json;
-
 
 $url = 'http://192.168.100.2:3003/compras';
 
@@ -42,9 +42,6 @@ if ($response===false){
 }
 // Cerrar la conexión cURL
 curl_close($ch);
-
-
-header("Location:usuario.php");
-
+ob_end_flush();
 ?>
 
