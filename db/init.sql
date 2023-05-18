@@ -20,7 +20,7 @@ CREATE TABLE medicamentos (
 
 CREATE TABLE compras (
     id int(11) auto_increment primary key,
-    nombreCliente varchar(255),
+    nombreCliente varchar(1000),
     totalCuenta int(11),
     FechaCompra datetime default current_timestamp()
 );
