@@ -12,7 +12,7 @@ CREATE TABLE usuarios (
 
 CREATE TABLE medicamentos (
     ID_MEDICAMENTO int(11) AUTO_INCREMENT,
-    DESCRIPCION varchar(255),
+    DESCRIPCION varchar(255) CHARACTER SET utf8,
     PRECIO_UNITARIO FLOAT(11),
     INVENTARIO int(11),
     primary key(ID_MEDICAMENTO)
@@ -20,7 +20,7 @@ CREATE TABLE medicamentos (
 
 CREATE TABLE compras (
     id int(11) auto_increment primary key,
-    nombreCliente varchar(1000),
+    nombreCliente varchar(255),
     totalCuenta int(11),
     FechaCompra datetime default current_timestamp()
 );
@@ -28,7 +28,7 @@ CREATE TABLE compras (
 CREATE TABLE medicamentos_por_usuarios (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     usuario VARCHAR(50),
-    medicamento_nombre VARCHAR(1000),
+    medicamento_nombre VARCHAR(1000) CHARACTER SET utf8,
     cantidad INT,
     precio_total FLOAT,
     medicamento_id INT,
@@ -38,7 +38,7 @@ CREATE TABLE medicamentos_por_usuarios (
 CREATE TABLE notificaciones (
     id INT(11) AUTO_INCREMENT PRIMARY KEY,
     ID_MEDICAMENTO INT(11),
-    DESCRIPCION VARCHAR(255),
+    DESCRIPCION VARCHAR(255) CHARACTER SET utf8,
     INVENTARIO VARCHAR(255),
     Fecha datetime default current_timestamp()
 );
