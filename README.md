@@ -94,3 +94,34 @@ Comprueba su funcionamiento en el navegador con la direccion ip y recuerda que s
 ```bash
   192.168.100.2:4090
 ```
+
+## Escalar MyMed con Docker Swarm
+
+Cree un cluster de docker swarm con un nodo corriendo en el servidor
+
+```bash
+  sudo docker swarm init --advertise-addr 192.168.100.2
+```
+
+Asegurese que la versión del docker-compose.yml sea
+```bash
+    version: "3"
+```
+
+Ejecute
+
+```bash
+  sudo docker stack deploy -c docker-compose.yml mymed
+  sudo docker stack ls 
+```
+
+Escale el servicio (el número 6 es la cantidad de replicas que va a tener el servicio escalado)
+
+```bash
+  sudo docker service scale mymed_"servicio_que_desea_escalar"=6 
+```
+
+Para confirmar cuales son los servicios ejecute
+```bash
+  sudo docker service ls
+```
