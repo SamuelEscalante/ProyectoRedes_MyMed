@@ -125,7 +125,7 @@ ob_end_flush();
                 $dec = $resp[$i];
                 $ID_MEDICAMENTO = $dec->ID_MEDICAMENTO;
                 $INVENTARIO = $dec->INVENTARIO;
-                ob_end_flush();
+            ob_end_flush();
             ?>
                 <tr>
                     <td><?php echo $ID_MEDICAMENTO; ?></td>

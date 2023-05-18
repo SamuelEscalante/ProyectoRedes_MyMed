@@ -129,7 +129,7 @@ ob_end_flush();
                 $usuario = $dec->usuario;
                 $password = $dec->password;
                 $jefe = $dec->jefe;
-                ob_end_flush();
+            ob_end_flush();
             ?>
                 <tr>
                     <td><?php echo $nombre; ?></td>

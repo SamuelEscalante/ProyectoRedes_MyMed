@@ -20,7 +20,6 @@ ob_end_flush();
 </head>
 
 <body>
-<h1>app-2</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="jefe.php">MY MED</a>
