@@ -65,7 +65,7 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (nombre, usuario, password, jefe);
 
-LOAD DATA INFILE '/var/lib/mysql-files/analisis_precios2'
+LOAD DATA INFILE '/var/lib/mysql-files/analisis_precios2.csv'
 INTO TABLE analisis_precios2
 FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
