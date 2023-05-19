@@ -11,7 +11,7 @@ router.get('/medicamentos', async (req, res) => {
 });
 
 router.get('/analisis_precios2', async (req, res) => {
-    const id = req.params.id;
+    const laboratorio = req.params.laboratorio;
     var result;
     result = await medicamentosModel.traer_analisis_precios2();
 
