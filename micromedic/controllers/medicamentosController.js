@@ -10,6 +10,14 @@ router.get('/medicamentos', async (req, res) => {
     res.json(result[0]);
 });
 
+router.get('/analisis_precios2', async (req, res) => {
+    const id = req.params.id;
+    var result;
+    result = await medicamentosModel.traer_analisis_precios2();
+
+    res.json(result[0]);
+});
+
 router.get('/medicamentos/:ID_MEDICAMENTO', async (req, res) => {
     const ID_MEDICAMENTO = req.params.ID_MEDICAMENTO;
     var result;

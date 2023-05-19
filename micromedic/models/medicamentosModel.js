@@ -10,6 +10,10 @@ async function traermedicamentos() {
     const result = await connection.query('select * from medicamentos');
     return result
 }
+async function traer_analisis_precios2() {
+    const result = await connection.query('select * from analisis_precios2');
+    return result
+}
 async function traermedicamento(ID_MEDICAMENTO) {
     const result = await connection.query('SELECT * FROM medicamentos WHERE ID_MEDICAMENTO = ? ', [ID_MEDICAMENTO]);
     return result;
@@ -35,5 +39,5 @@ async function crearmedicamento(DESCRIPCION, PRECIO_UNITARIO, INVENTARIO) {
     return result;
 }
 module.exports = {
-    traermedicamentos, traermedicamento, actualizarmedicamento, crearmedicamento
+    traermedicamentos, traermedicamento, actualizarmedicamento, crearmedicamento, traer_analisis_precios2
 };
