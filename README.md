@@ -51,6 +51,88 @@ Vagrant.configure("2") do |config|
   end
 end
 ```
+## Instalar y dejar funcionando docker en la maquina virtual
+
+Desde una terminal de Ubuntu instalamos docker para poder posteriormente agregar la extension de docker compose
+
+Compruebe que no tenga versiones de docker instaladas anteriormente
+
+```bash
+  sudo apt-get remove docker docker-engine docker.io containerd runc
+```
+Actualizar el paquete apt e instale paquetes para permitir que apt use
+un repositorio a traves de HTTPS
+
+```bash
+  sudo apt-get update
+  sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+```
+ Agregue la clave GPG* oficial de Docker
+
+```bash
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add
+```
+Verifique	que	tiene	la	clave	con	el	fingerprint 9DC8	5822	9FC7	DD38	854A E2D8	
+8D81	803C	0EBF	CD88,	buscando	los	ultimos 8	caracteres	del	fingerprint
+
+```bash
+  sudo apt-key fingerprint 0EBFCD88
+```
+Agregar un repositorio stable
+
+```bash
+  sudo add-apt-repository \
+    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+    $(lsb_release -cs) \
+    stable"
+```
+Actualice el paquete apt e instale la ultima version de Docker
+Engine.
+
+```bash
+  sudo apt-get update
+
+  sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+Verificar que Docker este corriendo
+
+```bash
+ sudo systemctl status docker
+```
+
+## Instalar el plugin de docker compose
+
+Instalacion de Docker Compose en Ubuntu
+
+```bash
+ sudo apt-get update
+ 
+ sudo apt-get install docker-compose-plugin
+```
+Verificar la version de docker compose instalada
+
+```bash
+docker compose version
+```
+Modificar (Crear) el archivo ~/.vimrc para trabajar con Yaml.
+
+```bash
+vim ~/.vimrc
+```
+Agregar la siguiente configuracion, con el fin de trabajar
+adecuadamente con tabs y espacios en los archivos yaml.
+
+```bash
+  " Configuracion para trabajar con archivos yaml
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+```
+Una vez configurado vim se puede crear el archivo .yml.
 
 ## Correr MyMed localmente
 
