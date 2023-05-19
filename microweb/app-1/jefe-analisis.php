@@ -152,11 +152,11 @@ ob_end_flush();
     for ($i = 0; $i < $long; $i++) {
         $dec = $resp[$i];
         $laboratorio = $dec->laboratorio;
-        $avg(precio_unitario) = $dec->avg(precio_unitario);
+        $avg_precio_unitario = $dec->avg_precio_unitario;
     ?>
         <tr>
           <td><?php echo $laboratorio; ?></td>
-          <td><?php echo "$" . number_format($avg(precio_unitario), 2); ?></td>
+          <td><?php echo "$" . number_format($avg_precio_unitario, 2); ?></td>
         </tr>
     <?php
       }

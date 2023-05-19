@@ -45,7 +45,7 @@ CREATE TABLE notificaciones (
 
 CREATE TABLE analisis_precios2 (
     laboratorio VARCHAR (255) PRIMARY KEY ,
-    avg(precio_unitario) FLOAT
+    avg_precio_unitario FLOAT
 );
 
 LOAD DATA INFILE '/var/lib/mysql-files/medicamentos_.csv'
@@ -71,4 +71,4 @@ FIELDS TERMINATED BY ','
 ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
-(laboratorio, avg(precio_unitario));
+(laboratorio, avg_precio_unitario);
