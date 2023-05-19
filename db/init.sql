@@ -43,10 +43,6 @@ CREATE TABLE notificaciones (
     Fecha datetime default current_timestamp()
 );
 
-CREATE TABLE analisis_precios2 (
-    laboratorio VARCHAR (255) PRIMARY KEY ,
-    avg_precio_unitario FLOAT
-);
 
 LOAD DATA INFILE '/var/lib/mysql-files/medicamentos_.csv'
 INTO TABLE medicamentos
@@ -65,10 +61,3 @@ LINES TERMINATED BY '\n'
 IGNORE 1 ROWS
 (nombre, usuario, password, jefe);
 
-LOAD DATA INFILE '/var/lib/mysql-files/analisis_precios2.csv'
-INTO TABLE analisis_precios2
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(laboratorio, avg_precio_unitario);
