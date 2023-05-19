@@ -49,7 +49,7 @@ ob_end_flush();
           <a class="nav-link" href="jefe-noti.php">Notificación de Medicamentos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="jefe-noti.php">Analisis</a>
+          <a class="nav-link" href="jefe-analisis.php">Analisis</a>
         </li>
       </ul>
       
