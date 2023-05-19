@@ -128,7 +128,6 @@ ob_end_flush();
 <table class="table table-striped table-hover">
   <thead>
     <tr>
-
       <th>LABORATORIO</th>
       <th>PROMEDIO DE PRECIO UNITARIO</th>
     </tr>
