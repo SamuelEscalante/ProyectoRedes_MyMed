@@ -207,3 +207,85 @@ Para confirmar cuales son los servicios ejecute
 ```bash
   sudo docker service ls
 ```
+
+## Instalar Apache Spark
+
+Instalar Java en Ubuntu 22.04
+```bash
+ sudo apt update
+
+  sudo apt install -y openjdk-18-jdk
+
+  cat <<EOF | sudo tee /etc/profile.d/jdk18.sh
+    export JAVA_HOME=/usr/lib/jvm/java-1.18.0-openjdk-amd64
+    export PATH=\$PATH:\$JAVA_HOME/bin
+    EOF
+
+```
+Descargar y descomprimir Spark
+Verifique en
+https://dlcdn.apache.org/spark/
+la última versión de spark y proceda a descargarla usando wget
+En nuestro caso utilizaremos la versión 3.4.0, la cual es la última disponible al momento
+de escribir el READ ME, es posible que deba usar una versión posterior, por lo cual
+deberá cambiar los números de la versión en el comando de descarga.
+
+```bash
+ mkdir labSpark
+ 
+ cd labSpark/
+
+wget https://dlcdn.apache.org/spark/spark3.4.0/spark-3.4.0-bin-hadoop3.tgz
+
+tar -xvzf spark-3.4.0-bin-hadoop3.tgz
+
+```
+
+Configure un Cluster Spark
+Configuraremos un cluster de spark en modo standalone, con el master y worker
+corriendo en una misma máquina.
+Dirijase al directorio de configuración de Spark
+
+```bash
+cd spark-3.4.0-bin-hadoop3/conf/
+```
+Haga una copia del archivo de configuracion de variables de entorno de Spark
+
+```bash
+cp spark-env.sh.template spark-env.sh
+```
+Edite y agregue al final las configuraciones de SPARK_LOCAL_IP y
+SPARK_MASTER_HOST así:
+
+```bash
+SPARK_LOCAL_IP=192.168.100.2
+SPARK_MASTER_HOST=192.168.100.2
+```
+Es importante que la ip sea esta porque es la que esta configurada en el 
+VagrantFile, si se quiere poner otra ip tendra que modificar el VagrantFile 
+con la ip que desea colocar.
+
+Diríjase a sbin e inicie el master:
+```bash
+cd /home/vagrant/labSpark/spark-3.4.0-bin-hadoop3/sbin
+
+./start-master.sh 
+```
+
+Para verificar abra en un browser http://192.168.100.2:8080/ para ver la interfaz
+de administración del master.
+Inicie un worker en la misma máquina (debe usar la URL que aparece en la
+interfaz de administración del master, en nuestro caso es):
+
+```bash
+ ./startworker.sh spark://192.168.100.2:7077
+```
+
+Para iniciar una terminal de PySpark, ejecute en el directorio bin el siguiente
+comando:
+
+```bash
+cd /home/vagrant/labSpark/spark-3.4.0-bin-hadoop3/bin
+
+ ./pyspark
+```
